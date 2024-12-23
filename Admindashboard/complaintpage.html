@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="logo">
+            <h2>View Complaints</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/Adminpage.html">Dashboard</a></li>
+            <li><a href="/productpage.html">Manage Products</a></li>
+            <li><a href="/Manage Orders-page.html">Orders</a></li>
+            <li><a href="login.html" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Complaints List -->
+    <div class="complaints-container">
+        <h3>Customer Complaints</h3>
+        <table id="complaintsTable">
+            <thead>
+                <tr>
+                    <th>Complaint</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Delayed delivery of order #1023</td>
+                    <td>Pending</td>
+                    <td>
+                        <button class="btn btn-primary">Resolve</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Received wrong size for order #1056</td>
+                    <td>Resolved</td>
+                    <td>
+                        <button class="btn btn-secondary" disabled>Resolved</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Payment issue for order #1088</td>
+                    <td>In Progress</td>
+                    <td>
+                        <button class="btn btn-primary">Resolve</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

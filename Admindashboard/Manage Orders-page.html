@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #007BFF;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .order-table th, .order-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-table th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .order-table td {
+            background-color: #fff;
+        }
+
+        .order-status {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .order-status.pending {
+            background-color: #f0ad4e;
+            color: white;
+        }
+
+        .order-status.completed {
+            background-color: #5bc0de;
+            color: white;
+        }
+
+        .order-status.canceled {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .action-buttons button {
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .action-buttons .delete {
+            background-color: #d9534f;
+        }
+
+        .action-buttons .delete:hover {
+            background-color: #c9302c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Admin Dashboard</h1>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h2>Manage Orders</h2>
+        
+        <!-- Orders Table -->
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="ordersTableBody">
+                <!-- Orders will be populated here via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const orders = [
+            { orderId: "ORD001", customer: "John Doe", product: "T-shirt", quantity: 2, price: "$40", status: "pending" },
+            { orderId: "ORD002", customer: "Jane Smith", product: "Jeans", quantity: 1, price: "$50", status: "completed" },
+            { orderId: "ORD003", customer: "Michael Johnson", product: "Jacket", quantity: 3, price: "$150", status: "canceled" },
+        ];
+
+        const ordersTableBody = document.getElementById('ordersTableBody');
+
+        function loadOrders() {
+            ordersTableBody.innerHTML = '';
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                
+                // Create table cells
+                const orderIdCell = document.createElement('td');
+                orderIdCell.textContent = order.orderId;
+
+                const customerCell = document.createElement('td');
+                customerCell.textContent = order.customer;
+
+                const productCell = document.createElement('td');
+                productCell.textContent = order.product;
+
+                const quantityCell = document.createElement('td');
+                quantityCell.textContent = order.quantity;
+
+                const priceCell = document.createElement('td');
+                priceCell.textContent = order.price;
+
+                const statusCell = document.createElement('td');
+                const statusLabel = document.createElement('span');
+                statusLabel.classList.add('order-status', order.status);
+                statusLabel.textContent = order.status.charAt(0).toUpperCase() + order.status.slice(1);
+                statusCell.appendChild(statusLabel);
+
+                const actionCell = document.createElement('td');
+                const actionButtons = document.createElement('div');
+                actionButtons.classList.add('action-buttons');
+                
+                // Edit Button
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.onclick = () => alert('Edit order ' + order.orderId);
+                
+                // Delete Button
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.classList.add('delete');
+                deleteButton.onclick = () => deleteOrder(order.orderId);
+
+                actionButtons.appendChild(editButton);
+                actionButtons.appendChild(deleteButton);
+                actionCell.appendChild(actionButtons);
+
+                // Append all cells to the row
+                row.appendChild(orderIdCell);
+                row.appendChild(customerCell);
+                row.appendChild(productCell);
+                row.appendChild(quantityCell);
+                row.appendChild(priceCell);
+                row.appendChild(statusCell);
+                row.appendChild(actionCell);
+
+                // Append row to table
+                ordersTableBody.appendChild(row);
+            });
+        }
+
+        function deleteOrder(orderId) {
+            // Logic to delete order
+            const orderIndex = orders.findIndex(order => order.orderId === orderId);
+            if (orderIndex > -1) {
+                orders.splice(orderIndex, 1);
+                loadOrders(); // Re-render the orders table
+            }
+        }
+
+        loadOrders();
+    </script>
+</body>
+</html>

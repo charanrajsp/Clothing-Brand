@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="logo">
+            <h2>Manage Products</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="view-complaints.html">Complaints</a></li>
+            <li><a href="manage-orders.html">Orders</a></li>
+            <li><a href="login.html" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Product List & Add Product Form -->
+    <div class="product-container">
+        <h3>Product List</h3>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Products will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <h3>Add New Product</h3>
+        <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="number" id="productPrice" placeholder="Price" required>
+            <input type="file" id="productImage" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

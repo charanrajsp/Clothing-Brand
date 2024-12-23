@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="logo">
+            <h2>View Complaints</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="manage-products.html">Manage Products</a></li>
+            <li><a href="manage-orders.html">Orders</a></li>
+            <li><a href="login.html" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Complaints List -->
+    <div class="complaints-container">
+        <h3>Customer Complaints</h3>
+        <table id="complaintsTable">
+            <thead>
+                <tr>
+                    <th>Complaint</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Complaints will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/admincomponents/styles.css">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <nav class="admin-nav">
+        <div class="logo">
+            <h2>Admin Dashboard</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/admincomponents/admindashboard.html">Dashboard</a></li>
+            <li><a href="/admincomponents/manage-products.html">Manage Products</a></li>
+            <li><a href="/admincomponents/complaintpage.html">Complaints</a></li>
+            <li><a href="manage-orders.html">Orders</a></li>
+            <li><a href="login.html" id="logoutBtn">Logout</a></li>
+      
+        </ul>
+    </nav>
+
+    <!-- Admin Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Products</h3>
+                <p id="productCount">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Complaints</h3>
+                <p id="complaintCount">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Orders</h3>
+                <p id="orderCount">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
